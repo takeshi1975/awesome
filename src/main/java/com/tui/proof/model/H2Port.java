@@ -1,7 +1,5 @@
-package com.tui.proof.ports;
+package com.tui.proof.model;
 
-import com.tui.proof.model.Client;
-import com.tui.proof.model.Order;
 import java.util.List;
 
 public interface H2Port {

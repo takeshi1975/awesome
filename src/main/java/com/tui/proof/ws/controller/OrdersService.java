@@ -3,7 +3,6 @@ package com.tui.proof.ws.controller;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.IntStream;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.tui.proof.model.Client;
 import com.tui.proof.model.Order;
 import com.tui.proof.model.OrderUseCase;
-import com.tui.proof.ports.H2Port;
+import com.tui.proof.model.H2Port;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

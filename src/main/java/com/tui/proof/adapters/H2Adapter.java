@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.tui.proof.model.Client;
 import com.tui.proof.model.Order;
-import com.tui.proof.ports.H2Port;
+import com.tui.proof.model.H2Port;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
