@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tui.proof.ws.controller.OrderRepository">
+
+	<resultMap id="orderResultMap" type="com.tui.proof.adapters.model.Order">
+		<id property="number" column="number" />
+		<result property="pilotes" column="pilotes" />
+		<result property="orderTotal" column="order_total" />
+		<result property="creationDate" column="creation_date" />
+		<association property="deliveryAddress"
+			javaType="com.tui.proof.adapters.model.Address">
+			<result property="street" column="street" />
+			<result property="postcode" column="postcode" />
+			<result property="city" column="city" />
+			<result property="country" column="country" />
+		</association>
+	</resultMap>
+
+	<select id="findOrdersByClientCriteria"
+		resultMap="orderResultMap"> SELECT T1.order_number,
+		T1.pilotes,
+		T1.order_total,
+		T1.creation_date,
+		T3.street,
+		T3.postcode,
+		T3.city,
+		T3.country FROM
+		Orders T1 INNER JOIN Clients T2 ON T1.client_id = T2.id INNER JOIN
+		Address T3 ON T1.address_id = T3.id <where>
+			<if test="client.firstName != null">
+				AND T2.first_name LIKE '%' || #{client.firstName} || '%'
+			</if>
+			<if test="client.lastName != null">
+				AND T2.last_name LIKE '%' || #{client.lastName} || '%'
+			</if>
+			<if test="client.email != null">
+				AND T2.email LIKE '%' || #{client.email} || '%'
+			</if>
+			<if test="client.telephone != null">
+				AND T2.telephone LIKE '%' || #{client.telephone} || '%'
+			</if>
+		</where>
+	</select>
+
+	<insert id="createOrder" parameterType="com.tui.proof.adapters.model.Order">
+		INSERT INTO Orders (order_number, client_id, address_id, creation_date, pilotes, order_total)
+		VALUES (#{number}, #{client.id}, #{deliveryAddress.id}, #{creationDate}, #{pilotes},
+		#{orderTotal})
+	</insert>
+	
+	<select id="getNextOrderNumber">
+        SELECT MAX(order_number) FROM Orders
+    </select>
+	
+	<update id="updateOrder" parameterType="com.tui.proof.adapters.model.Order">
+		UPDATE Orders
+		SET client_id = #{client.id},
+		address_id = #{deliveryAddress.id},
+		creation_date = #{creationDate},
+		pilotes = #{pilotes},
+		order_total = #{orderTotal}
+		WHERE order_number = #{number}
+	</update>
+</mapper>

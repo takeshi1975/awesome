@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "com.tui.proof.qty-values",
+    "type": "java.util.List<java.lang.Integer>",
+    "description": "A description for 'com.tui.proof.qty-values'"
+  },
+  {
+    "name": "com.tui.proof.price",
+    "type": "java.lang.Double",
+    "description": "A description for 'com.tui.proof.price'"
+  },
+  {
+    "name": "com.tui.proof.maxUpdateTime",
+    "type": "java.lang.Integer",
+    "description": "A description for 'com.tui.proof.maxUpdateTime'"
+  }
+]}
