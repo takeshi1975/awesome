@@ -13,7 +13,4 @@ public interface OrderMapper {
 	
 	com.tui.proof.adapters.model.Order toEntity(Order orderEntity);
 
-	com.tui.proof.ws.controller.jto.Order toJto(Order order);
-
-	Order fromJtoToModel(com.tui.proof.ws.controller.jto.Order order);
 }

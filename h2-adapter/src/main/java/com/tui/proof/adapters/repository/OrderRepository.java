@@ -1,4 +1,4 @@
-package com.tui.proof.ws.controller;
+package com.tui.proof.adopters.repository;
 
 import java.util.List;
 

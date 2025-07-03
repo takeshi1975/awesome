@@ -10,7 +10,7 @@ import com.tui.proof.mappers.OrderMapper;
 import com.tui.proof.model.Client;
 import com.tui.proof.model.H2Port;
 import com.tui.proof.model.Order;
-import com.tui.proof.ws.controller.OrderRepository;
+import com.tui.proof.adopters.repository.OrderRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
